@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MobiLegends\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-31 19:38+0000\n"
+"PO-Revision-Date: 2020-03-31 19:39+0000\n"
+"Last-Translator: DanielRios549 <danielrios.oficial@gmail.com>\n"
+"Language-Team: Português do Brasil\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: mobilegends.php:14
+msgid "Teams"
+msgstr "Times"
+
+#: mobilegends.php:15
+msgid "Team"
+msgstr "Time"
+
+#: mobilegends.php:18
+msgid "Players"
+msgstr "Jogadores"
+
+#: mobilegends.php:19
+msgid "Player"
+msgstr "Jogador"
+
+#: mobilegends.php:22
+msgid "Camps"
+msgstr "Campeonatos"
+
+#: mobilegends.php:23
+msgid "Camp"
+msgstr "Campeonato"
+
+#: mobilegends.php:26
+msgid "Seasons"
+msgstr "Temporadas"
+
+#: mobilegends.php:27
+msgid "Season"
+msgstr "Temporada"
+
+#. Name of the plugin
+msgid "MobiLegends"
+msgstr "MobiLegends"
+
+#. Description of the plugin
+msgid "This is a plugin made especially for Mobile Legends League"
+msgstr "Esse é um plugin feito especialmente para a Liga de Mobile Legends"
+
+#. Author of the plugin
+msgid "Daniel Rios"
+msgstr "Daniel Rios"
