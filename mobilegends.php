@@ -92,3 +92,5 @@ function mobilegends_uninstall() {
     $roles -> remove_role('mobilegends');
 }
 register_uninstall_hook( __FILE__, 'mobilegends_uninstall' );
+
+require_once __DIR__ . '/admin/index.php';
