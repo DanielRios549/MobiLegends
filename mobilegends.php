@@ -29,11 +29,47 @@ function mobilegends_add_post_types() {
 }
 add_action( 'init', 'mobilegends_add_post_types' );
 
+function mobilegends_add_role() {
+    $roles = new WP_Roles();
+    $apply = array();
+
+    // Ensure mobilegends role exists and is not locked out
+
+    if( $role = $roles -> get_role( 'mobilegends' ) ) {
+        $role -> has_cap('read') || $role -> add_cap('read');
+    }
+
+    // Else absence of mobilegends role indicates first run
+    // By default allow full access for those who can manage_options
+
+    else {
+        $apply['mobilegends'] = $roles -> add_role(
+            'mobilegends', 'MobiLegends', array(
+            'read'       => true,
+            'mobi_admin' => true
+        ));
+        foreach( $roles -> role_objects as $id => $role ) {
+            if( $role -> has_cap('manage_options') ) {
+                $apply[$id] = $role;
+            }
+        }
+    }
+}
+
 function mobilegends_install() {
+    //Add the option talbe in database
+
     global $wpdb;
     $wpdb -> query("CREATE TABLE IF NOT EXISTS {$wpdb -> prefix}mobilegends (options varchar(255))");
+
+    //Add post types for custom pages and posts
+
     mobilegends_add_post_types();
     flush_rewrite_rules();
+
+    //Add role and capabilyties to access the plugin
+
+    mobilegends_add_role();
 }
 register_activation_hook( __FILE__, 'mobilegends_install' );
 
@@ -43,11 +79,16 @@ function mobilegends_deactivation() {
     unregister_post_type( 'camp' );
     unregister_post_type( 'season' );
     flush_rewrite_rules();
+
+    mobilegends_uninstall();
 }
-register_deactivation_hook( __FILE__, mobilegends_deactivation() );
+register_deactivation_hook( __FILE__, 'mobilegends_deactivation' );
 
 function mobilegends_uninstall() {
     global $wpdb;
     $wpdb -> query("DROP TABLE IF EXISTS {$wpdb -> prefix}mobilegends");
+
+    $roles = new WP_Roles();
+    $roles -> remove_role('mobilegends');
 }
 register_uninstall_hook( __FILE__, 'mobilegends_uninstall' );

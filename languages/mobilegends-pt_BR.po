@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 19:38+0000\n"
-"PO-Revision-Date: 2020-03-31 19:39+0000\n"
+"POT-Creation-Date: 2020-03-31 20:21+0000\n"
+"PO-Revision-Date: 2020-03-31 20:22+0000\n"
 "Last-Translator: DanielRios549 <danielrios.oficial@gmail.com>\n"
 "Language-Team: Português do Brasil\n"
 "Language: pt_BR\n"
@@ -45,6 +45,10 @@ msgstr "Temporadas"
 #: mobilegends.php:27
 msgid "Season"
 msgstr "Temporada"
+
+#: mobilegends.php:30
+msgid "MobiLegends Manager"
+msgstr "Moderador MobiLegends"
 
 #. Name of the plugin
 msgid "MobiLegends"
