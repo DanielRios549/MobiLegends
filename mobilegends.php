@@ -9,7 +9,7 @@
  * 
 */
 
-function mobilegends_add_post_types() {
+function mobi_add_post_types() {
     register_post_type( 'team', array('labels' => array(
         'name'          => __('Teams', 'mobilegends'),
         'singular_name' => __('Team', 'mobilegends'),
@@ -27,9 +27,9 @@ function mobilegends_add_post_types() {
         'singular_name' => __('Season', 'mobilegends'),
     ), 'public'         => 'true') );
 }
-add_action( 'init', 'mobilegends_add_post_types' );
+add_action( 'init', 'mobi_add_post_types' );
 
-function mobilegends_add_role() {
+function mobi_add_role() {
     $roles = new WP_Roles();
     $apply = array();
 
@@ -56,41 +56,69 @@ function mobilegends_add_role() {
     }
 }
 
-function mobilegends_install() {
-    //Add the option talbe in database
+function mobi_db_tables() {
+    $tables = array(
+        'mobi_options',
+        'mobi_seasons',
+        'mobi_teams',
+        'mobi_players',
+        'mobi_matches'
+    );
+    return $tables;
+}
 
+function mobi_install() {
+    //Add the option talbe in database
     global $wpdb;
-    $wpdb -> query("CREATE TABLE IF NOT EXISTS {$wpdb -> prefix}mobilegends (options varchar(255))");
+    $databases = mobi_db_tables();
+
+    foreach ($databases as $database) {
+        $wpdb -> query("CREATE TABLE IF NOT EXISTS {$wpdb -> prefix}{$database} (options varchar(255))");
+    }
 
     //Add post types for custom pages and posts
 
-    mobilegends_add_post_types();
+    mobi_add_post_types();
     flush_rewrite_rules();
 
     //Add role and capabilyties to access the plugin
 
-    mobilegends_add_role();
+    mobi_add_role();
 }
-register_activation_hook( __FILE__, 'mobilegends_install' );
+register_activation_hook( __FILE__, 'mobi_install' );
 
-function mobilegends_deactivation() {
-    unregister_post_type( 'team' );
-    unregister_post_type( 'player' );
-    unregister_post_type( 'camp' );
-    unregister_post_type( 'season' );
+function mobi_deactivation() {
+    unregister_post_type('team');
+    unregister_post_type('player');
+    unregister_post_type('camp');
+    unregister_post_type('season');
     flush_rewrite_rules();
 
-    mobilegends_uninstall();
+    mobi_uninstall();
 }
-register_deactivation_hook( __FILE__, 'mobilegends_deactivation' );
+register_deactivation_hook( __FILE__, 'mobi_deactivation' );
 
-function mobilegends_uninstall() {
+function mobi_uninstall() {
     global $wpdb;
-    $wpdb -> query("DROP TABLE IF EXISTS {$wpdb -> prefix}mobilegends");
+    $databases = mobi_db_tables();
+
+    foreach ($databases as $database) {
+        $wpdb -> query("DROP TABLE IF EXISTS {$wpdb -> prefix}{$database}");
+    }
 
     $roles = new WP_Roles();
     $roles -> remove_role('mobilegends');
 }
-register_uninstall_hook( __FILE__, 'mobilegends_uninstall' );
+register_uninstall_hook( __FILE__, 'mobi_uninstall' );
 
 require_once __DIR__ . '/admin/index.php';
+
+add_action( 'activated_plugin', 'mobi_save_error', 10, 2 );
+
+function mobi_save_error( $plugin, $network_wide ) {
+    file_put_contents(
+        WP_CONTENT_DIR. '/error_activation.html',
+        $plugin . ob_get_contents()
+    );
+    //update_option( 'plugin_error',  ob_get_contents() );
+}
