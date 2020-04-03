@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 09:02+0000\n"
+"POT-Creation-Date: 2020-04-03 10:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.1; wp-5.3.2"
 
-#: mobilegends.php:14
+#: mobilegends.php:14 admin/pages.php:46
 msgid "Teams"
 msgstr ""
 
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Team"
 msgstr ""
 
-#: mobilegends.php:18
+#: mobilegends.php:18 admin/pages.php:54
 msgid "Players"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: mobilegends.php:22
+#: mobilegends.php:22 admin/pages.php:38
 msgid "Matches"
 msgstr ""
 
@@ -43,12 +43,17 @@ msgstr ""
 msgid "Seasons"
 msgstr ""
 
-#: mobilegends.php:27
+#: mobilegends.php:27 admin/pages.php:30
 msgid "Season"
 msgstr ""
 
 #. Name of the plugin
+#: admin/pages.php:13
 msgid "MobiLegends"
+msgstr ""
+
+#: admin/pages.php:22
+msgid "Dashboard"
 msgstr ""
 
 #. Description of the plugin

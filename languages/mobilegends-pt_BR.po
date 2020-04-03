@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-02 09:02+0000\n"
-"PO-Revision-Date: 2020-04-02 09:02+0000\n"
+"POT-Creation-Date: 2020-04-03 10:16+0000\n"
+"PO-Revision-Date: 2020-04-03 10:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: Português do Brasil\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.2; wp-5.4"
 
-#: mobilegends.php:14
+#: mobilegends.php:14 admin/pages.php:46
 msgid "Teams"
 msgstr "Times"
 
@@ -22,7 +22,7 @@ msgstr "Times"
 msgid "Team"
 msgstr "Time"
 
-#: mobilegends.php:18
+#: mobilegends.php:18 admin/pages.php:54
 msgid "Players"
 msgstr "Jogadores"
 
@@ -30,7 +30,7 @@ msgstr "Jogadores"
 msgid "Player"
 msgstr "Jogador"
 
-#: mobilegends.php:22
+#: mobilegends.php:22 admin/pages.php:38
 msgid "Matches"
 msgstr "Partidas"
 
@@ -42,13 +42,18 @@ msgstr "Partida"
 msgid "Seasons"
 msgstr "Temporadas"
 
-#: mobilegends.php:27
+#: mobilegends.php:27 admin/pages.php:30
 msgid "Season"
 msgstr "Temporada"
 
 #. Name of the plugin
+#: admin/pages.php:13
 msgid "MobiLegends"
 msgstr "MobiLegends"
+
+#: admin/pages.php:22
+msgid "Dashboard"
+msgstr "Visão Geral"
 
 #. Description of the plugin
 msgid "This is a plugin made especially for Mobile Legends League"

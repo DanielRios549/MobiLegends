@@ -27,12 +27,56 @@
     --secondColor: #464646;
 }
 body {
-    background-color: var(--acentColor);
+    //background-color: var(--acentColor);
 
-    h1 {
+    h2 {
         &:before {
             //content: $fa-var-glass;
             //@include font-awesome(2em, var(--secondColor));
+        }
+    }
+    .wp-submenu {
+        > .current {
+            &:before {
+                content: '';
+                background-color: #ffffff;
+                width: 2px;
+                height: 30px;
+                display: inline-block;
+                left: 0;
+                position: absolute;
+            }
+        }
+    }
+    #wpbody {
+        .overview {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+
+            .item {
+                border-radius: 5px;
+                width: 25%;
+                height: 200px;
+                background-color: var(--acentColor);
+                margin: 10px;
+
+                a {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    text-decoration: none;
+
+                    span {
+                        position: absolute;
+                        right: 10px;
+                        bottom: 10px;
+                        color: var(--secondColor);
+                        font-size: 1.5em;
+                    }
+                }
+            }
         }
     }
 }

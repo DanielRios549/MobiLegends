@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/../includes/dashboard.php';
 require_once __DIR__ . '/../includes/seasons.php';
 require_once __DIR__ . '/../includes/matches.php';
 require_once __DIR__ . '/../includes/teams.php';
@@ -12,10 +13,19 @@ function mobi_register_custom_pages() {
         __('MobiLegends', 'mobilegends'),
         'mobi_admin',
         'mobi-dashboard',
-        'mobi_start_page',
-        plugins_url( '/images/menu.png', __FILE__ )
+        '',
+        plugins_url( '/images/menu.png', __FILE__ ),
+        2
     );
     $pages = array(
+        'mobi-dashboard' => array (
+            'parent'     => 'mobi-dashboard',
+            'name'       => __('Dashboard', 'mobilegends'),
+            'permission' => 'mobi_admin',
+            'link'       => 'mobi-dashboard',
+            'function'   => 'mobi_start_page',
+            'icon'       => ''
+        ),
         'mobi-seasons' => array (
             'parent'     => 'mobi-dashboard',
             'name'       => __('Season', 'mobilegends'),
@@ -49,10 +59,10 @@ function mobi_register_custom_pages() {
             'icon'       => ''
         )
     );
-    foreach($pages as $key => $page) {
+    foreach($pages as $page) {
         add_submenu_page(
             $page['parent'],
-            $page[$key],
+            $page['name'],
             $page['name'],
             $page['permission'],
             $page['link'],
@@ -63,8 +73,3 @@ function mobi_register_custom_pages() {
 }
 
 add_action('admin_menu', 'mobi_register_custom_pages');
-
-
-function mobi_start_page() {
-    mobi_get_header();
-}
