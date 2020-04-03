@@ -1,0 +1,19 @@
+{
+  "name": "mobilegends",
+  "version": "1.0.0",
+  "description": "A plugin made especially for Mobile Legends League",
+  "main": "mobilegends.php",
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Rios",
+  "license": "ISC"
+}

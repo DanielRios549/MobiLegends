@@ -1,0 +1,38 @@
+/**
+    Author: Daniel Rios
+*/
+
+@charset "UTF-8";
+
+@import '../../../node_modules/font-awesome/scss/font-awesome';
+
+@mixin font-awesome($size: false, $colour: false, $weight: false,  $lh: false) {
+    @include fa-icon();
+    @if $size {
+        font-size: $size;
+    }
+    @if $colour {
+        color: $colour;
+    }
+    @if $weight {
+        font-weight: $weight;
+    }
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
+:root {
+    --acentColor: #2cafec;
+    --secondColor: #464646;
+}
+body {
+    background-color: var(--acentColor);
+
+    h1 {
+        &:before {
+            //content: $fa-var-glass;
+            //@include font-awesome(2em, var(--secondColor));
+        }
+    }
+}

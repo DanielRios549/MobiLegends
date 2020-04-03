@@ -18,9 +18,9 @@ function mobi_add_post_types() {
         'name'          => __('Players', 'mobilegends'),
         'singular_name' => __('Player', 'mobilegends'),
     ), 'public'         => 'true') );
-    register_post_type( 'camp', array('labels' => array(
-        'name'          => __('Camps', 'mobilegends'),
-        'singular_name' => __('Camp', 'mobilegends'),
+    register_post_type( 'match', array('labels' => array(
+        'name'          => __('Matches', 'mobilegends'),
+        'singular_name' => __('Match', 'mobilegends'),
     ), 'public'         => 'true') );
     register_post_type( 'season', array('labels' => array(
         'name'          => __('Seasons', 'mobilegends'),
@@ -90,7 +90,7 @@ register_activation_hook( __FILE__, 'mobi_install' );
 function mobi_deactivation() {
     unregister_post_type('team');
     unregister_post_type('player');
-    unregister_post_type('camp');
+    unregister_post_type('match');
     unregister_post_type('season');
     flush_rewrite_rules();
 
@@ -111,7 +111,7 @@ function mobi_uninstall() {
 }
 register_uninstall_hook( __FILE__, 'mobi_uninstall' );
 
-require_once __DIR__ . '/admin/index.php';
+require_once __DIR__ . '/admin/pages.php';
 
 add_action( 'activated_plugin', 'mobi_save_error', 10, 2 );
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-31 20:21+0000\n"
+"POT-Creation-Date: 2020-04-02 09:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -32,11 +32,11 @@ msgid "Player"
 msgstr ""
 
 #: mobilegends.php:22
-msgid "Camps"
+msgid "Matches"
 msgstr ""
 
 #: mobilegends.php:23
-msgid "Camp"
+msgid "Match"
 msgstr ""
 
 #: mobilegends.php:26
@@ -45,10 +45,6 @@ msgstr ""
 
 #: mobilegends.php:27
 msgid "Season"
-msgstr ""
-
-#: mobilegends.php:30
-msgid "MobiLegends Manager"
 msgstr ""
 
 #. Name of the plugin
