@@ -35,7 +35,7 @@ function mobi_register_custom_pages() {
             'icon'       => ''
         ),
         'mobi-matches' => array (
-            'parent'     => 'mobi-matches',
+            'parent'     => 'mobi-dashboard',
             'name'       => __('Matches', 'mobilegends'),
             'permission' => 'mobi_admin',
             'link'       => 'mobi-matches',
