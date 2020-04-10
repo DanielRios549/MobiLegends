@@ -1,11 +1,11 @@
 <?php
 
 require_once __DIR__ . '/header.php';
-require_once __DIR__ . '/../includes/dashboard.php';
-require_once __DIR__ . '/../includes/seasons.php';
-require_once __DIR__ . '/../includes/matches.php';
-require_once __DIR__ . '/../includes/teams.php';
-require_once __DIR__ . '/../includes/players.php';
+require_once __DIR__ . '/dashboard.php';
+require_once __DIR__ . '/seasons.php';
+require_once __DIR__ . '/matches.php';
+require_once __DIR__ . '/teams.php';
+require_once __DIR__ . '/players.php';
 
 function mobi_register_custom_pages() {
     add_menu_page(

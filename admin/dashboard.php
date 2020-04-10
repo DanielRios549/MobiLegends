@@ -39,4 +39,7 @@ function mobi_start_page() {
         </a>
     </div>
 </section>
+<div id="mobi_dash_details">
+    
+</div>
 <?php }}?>

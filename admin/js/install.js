@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
             },
             success: function () {
                 alert('Default data installed successfully.');
+                location.reload();
             },
             error: function () {
                 alert('Default data installed error.');
@@ -25,6 +26,7 @@ jQuery(document).ready(function($) {
             },
             success: function () {
                 alert('Default data not installed successfully.');
+                location.reload();
             },
             error: function () {
                 alert('Default data not installed error.');
