@@ -11,31 +11,67 @@
 
 require_once __DIR__ . '/includes/functions.php';
 
-function mobi_add_post_types() {
-    register_post_type( 'team', array('labels' => array(
-        'name'          => __('Teams', 'mobilegends'),
-        'singular_name' => __('Team', 'mobilegends'),
-    ), 'public'         => 'true') );
-    register_post_type( 'player', array('labels' => array(
-        'name'          => __('Players', 'mobilegends'),
-        'singular_name' => __('Player', 'mobilegends'),
-    ), 'public'         => 'true') );
-    register_post_type( 'match', array('labels' => array(
-        'name'          => __('Matches', 'mobilegends'),
-        'singular_name' => __('Match', 'mobilegends'),
-    ), 'public'         => 'true') );
-    register_post_type( 'season', array('labels' => array(
-        'name'          => __('Seasons', 'mobilegends'),
-        'singular_name' => __('Season', 'mobilegends'),
-    ), 'public'         => 'true') );
-
+function mobi_load_textdomain() {
     load_plugin_textdomain(
         'mobilegends',
         false,
         dirname(plugin_basename(__FILE__)) . '/languages'
     );
 }
-add_action( 'init', 'mobi_add_post_types' );
+
+add_action( 'init', 'mobi_load_textdomain' );
+
+function mobi_add_post_types() {
+    register_post_type( 'mobi_team', array('labels' => array(
+        'name'          => __('Teams', 'mobilegends'),
+        'singular_name' => __('Team', 'mobilegends'),
+    ), 'public'         => 'true') );
+    register_post_type( 'mobi_player', array('labels' => array(
+        'name'          => __('Players', 'mobilegends'),
+        'singular_name' => __('Player', 'mobilegends'),
+    ), 'public'         => 'true') );
+    register_post_type( 'mobi_match', array('labels' => array(
+        'name'          => __('Matches', 'mobilegends'),
+        'singular_name' => __('Match', 'mobilegends'),
+    ), 'public'         => 'true') );
+    register_post_type( 'mobi_season', array('labels' => array(
+        'name'          => __('Seasons', 'mobilegends'),
+        'singular_name' => __('Season', 'mobilegends'),
+    ), 'public'         => 'true') );
+    register_post_type( 'mobi_camp', array('labels' => array(
+        'name'          => __('Camps', 'mobilegends'),
+        'singular_name' => __('Camp', 'mobilegends'),
+    ), 'public'         => 'true') );
+}
+
+//add_action( 'init', 'mobi_add_post_types' );
+
+function mobi_register_taxonomies() {
+    $labels = [
+        'name'              => __('Seasons', 'mobilegends'),
+        'singular_name'     => __('Season', 'mobilegends'),
+        'search_items'      => __('Search Seasons', 'mobilegends'),
+        'all_items'         => __('All Seasons', 'mobilegends'),
+        'parent_item'       => __('Parent Season', 'mobilegends'),
+        'parent_item_colon' => __('Parent Season:', 'mobilegends'),
+        'edit_item'         => __('Edit Season', 'mobilegends'),
+        'update_item'       => __('Update Season', 'mobilegends'),
+        'add_new_item'      => __('Add New Season', 'mobilegends'),
+        'new_item_name'     => __('New Season Name', 'mobilegends'),
+        'menu_name'         => __('Season', 'mobilegends'),
+    ];
+    $args = [
+        'hierarchical'      => false,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => ['slug' => 'season'],
+    ];
+    register_taxonomy('mobi_season', ['mobi_camp'], $args);
+}
+
+//add_action( 'init', 'mobi_register_taxonomies' );
 
 function mobi_add_role() {
     $roles = new WP_Roles();
@@ -96,7 +132,9 @@ function mobi_install() {
 
     $wpdb -> query(
         "ALTER TABLE {$wpdb -> prefix}mobi_seasons ADD (
-            season_year YEAR NOT NULL
+            season_year YEAR NOT NULL,
+            camp int,
+            FOREIGN KEY (camp) REFERENCES {$wpdb -> prefix}mobi_camps(camp_id)
         )"
     );
     $wpdb -> query(
@@ -143,7 +181,7 @@ function mobi_activation_redirect($plugin) {
     }
 }
 
-add_action( 'activated_plugin', 'mobi_activation_redirect' );
+//add_action( 'activated_plugin', 'mobi_activation_redirect' );
 
 function mobi_deactivation() {
     unregister_post_type('team');

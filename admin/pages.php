@@ -30,7 +30,7 @@ function mobi_register_custom_pages() {
             'parent'     => 'mobi-dashboard',
             'name'       => __('Season', 'mobilegends'),
             'permission' => 'mobi_admin',
-            'link'       => 'mobi-seasons',
+            'link'       => 'mobi-season',
             'function'   => 'mobi_page_seasons',
             'icon'       => ''
         ),
@@ -57,7 +57,15 @@ function mobi_register_custom_pages() {
             'link'       => 'mobi-players',
             'function'   => 'mobi_page_players',
             'icon'       => ''
-        )
+        ),
+        'mobi-settings' => array (
+            'parent'     => 'mobi-dashboard',
+            'name'       => __('Settings', 'mobilegends'),
+            'permission' => 'mobi_admin',
+            'link'       => 'mobi-settings',
+            'function'   => 'mobi_page_settigns',
+            'icon'       => ''
+        ),
     );
     foreach($pages as $page) {
         add_submenu_page(

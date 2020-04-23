@@ -16,7 +16,8 @@ function mobi_get_tables_sufixes() {
         'player',
         'team',
         'match',
-        'season'
+        'season',
+        'camp'
     );
     return $tables;
 }
@@ -48,10 +49,28 @@ function mobi_get_option($option) {
     return $wpdb -> get_col($result)[0];
 }
 
+function mobi_show_data($data) {
+    global $wpdb;
+    $table = $wpdb -> prefix . 'mobi_' . mobi_get_plural($data);
+    
+    $query = $wpdb -> prepare("SELECT * FROM {$table}");
+    $result = $wpdb -> get_results($query);
+    return json_decode(json_encode($result), true);
+}
+
 function mobi_default_data_install() {
     check_ajax_referer('default_data_install');
     global $wpdb;
     $table = mobi_get_tables();
+
+    //Camp is the tournament, the one that all the other things will belong to
+
+    $wpdb -> insert($table[5],
+        array(
+            'camp_name'  => 'Mobile Legends Tournament',
+            'display_name' => 'Mobile Legends'
+        )
+    );
 
     //Season is only one by default, so a foreach is not necessary
 
@@ -59,7 +78,8 @@ function mobi_default_data_install() {
         array(
             'season_name'  => 'Champions',
             'display_name' => 'Champions Season',
-            'season_year'  => 2020
+            'season_year'  => 2020,
+            'camp'         => 1
         )
     );
 
@@ -186,6 +206,13 @@ function mobi_default_data_install() {
     }
 
     $option_table = mobi_get_option_table();
+
+    $wpdb -> insert($option_table,
+        array(
+            'option_name'   => 'current_camp',
+            'option_value'  => 1
+        )
+    );
     
     $wpdb -> update(
         $option_table,
