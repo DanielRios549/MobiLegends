@@ -49,11 +49,26 @@ function mobi_get_option($option) {
     return $wpdb -> get_col($result)[0];
 }
 
-function mobi_show_data($data) {
+function mobi_show_data($data, $join = NULL) {
     global $wpdb;
     $table = $wpdb -> prefix . 'mobi_' . mobi_get_plural($data);
+    $join_table = $wpdb -> prefix . 'mobi_' . mobi_get_plural($join);
+    $join_column = $join;
+
+    if($join == 'match') {
+        $join_column = 'next_' . $join;
+    }
+    if($join == 'team') {
+        $join_column = 'current_' . $join;
+    }
+
+    if($join != NULL) {
+        $query = $wpdb -> prepare("SELECT * FROM {$table} INNER JOIN {$join_table} WHERE {$table}.{$join_column} = {$join_table}.{$join}_id");
+    }
+    else {
+        $query = $wpdb -> prepare("SELECT * FROM {$table}");
+    }
     
-    $query = $wpdb -> prepare("SELECT * FROM {$table}");
     $result = $wpdb -> get_results($query);
     return json_decode(json_encode($result), true);
 }
@@ -68,7 +83,7 @@ function mobi_default_data_install() {
     $wpdb -> insert($table[5],
         array(
             'camp_name'  => 'Mobile Legends Tournament',
-            'display_name' => 'Mobile Legends'
+            'camp_display_name' => 'Mobile Legends'
         )
     );
 
@@ -77,7 +92,7 @@ function mobi_default_data_install() {
     $wpdb -> insert($table[4],
         array(
             'season_name'  => 'Champions',
-            'display_name' => 'Champions Season',
+            'season_display_name' => 'Champions Season',
             'season_year'  => 2020,
             'camp'         => 1
         )
@@ -86,13 +101,13 @@ function mobi_default_data_install() {
     $matches = array(
         array(
             'First',
-            'First',
+            'Uranus x Second',
             '2020-04-12',
             1
         ),
         array(
             'Second',
-            'Second',
+            'Noobs Win x WP Togueter',
             '2020-04-13',
             1
         )
@@ -178,7 +193,7 @@ function mobi_default_data_install() {
         $wpdb -> insert($table[3],
             array(
                 'match_name'         => $match[0],
-                'display_name' => $match[1],
+                'match_display_name' => $match[1],
                 'match_date'   => $match[2],
                 'season'       => $match[3]
             )
@@ -188,9 +203,9 @@ function mobi_default_data_install() {
         $wpdb -> insert($table[2],
             array(
                 'team_name'         => $team[0],
-                'display_name' => $team[1],
-                'year'         => $team[2],
-                'next_match'   => $team[3]
+                'team_display_name' => $team[1],
+                'year'              => $team[2],
+                'next_match'             => $team[3]
             )
         );
     }
@@ -198,9 +213,9 @@ function mobi_default_data_install() {
         $wpdb -> insert($table[1],
             array(
                 'player_name'         => $player[0],
-                'display_name' => $player[1],
-                'date'         => $player[2],
-                'current_team' => $player[3]
+                'player_display_name' => $player[1],
+                'date'                => $player[2],
+                'current_team'        => $player[3]
             )
         );
     }

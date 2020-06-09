@@ -110,7 +110,7 @@ function mobi_install() {
     foreach ($databases_sufixes as $database) {
         $primary_key = $database . '_id';
         $name = $database . '_name';
-        $value = 'display_name';
+        $value = $database . '_display_name';
 
         if ($database == 'option') {
             $value = 'option_value';

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-03 10:16+0000\n"
-"PO-Revision-Date: 2020-04-03 10:16+0000\n"
+"POT-Creation-Date: 2020-04-23 19:14+0000\n"
+"PO-Revision-Date: 2020-04-23 19:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: Português do Brasil\n"
 "Language: pt_BR\n"
@@ -12,48 +12,112 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.2; wp-5.4"
+"X-Loco-Version: 2.3.3; wp-5.4"
 
-#: mobilegends.php:14 admin/pages.php:46
+#: mobilegends.php:26 admin/pages.php:47
 msgid "Teams"
 msgstr "Times"
 
-#: mobilegends.php:15
+#: mobilegends.php:27
 msgid "Team"
 msgstr "Time"
 
-#: mobilegends.php:18 admin/pages.php:54
+#: mobilegends.php:30 admin/pages.php:55
 msgid "Players"
 msgstr "Jogadores"
 
-#: mobilegends.php:19
+#: mobilegends.php:31
 msgid "Player"
 msgstr "Jogador"
 
-#: mobilegends.php:22 admin/pages.php:38
+#: mobilegends.php:34 admin/pages.php:39
 msgid "Matches"
 msgstr "Partidas"
 
-#: mobilegends.php:23
+#: mobilegends.php:35
 msgid "Match"
 msgstr "Partida"
 
-#: mobilegends.php:26
+#: mobilegends.php:38 mobilegends.php:51
 msgid "Seasons"
 msgstr "Temporadas"
 
-#: mobilegends.php:27 admin/pages.php:30
+#: mobilegends.php:39 mobilegends.php:52 mobilegends.php:61 admin/pages.php:31
 msgid "Season"
 msgstr "Temporada"
+
+#: mobilegends.php:42
+msgid "Camps"
+msgstr "Campeonatos"
+
+#: mobilegends.php:43
+msgid "Camp"
+msgstr "Campeonato"
+
+#: mobilegends.php:53
+msgid "Search Seasons"
+msgstr "Pesquisar Tempoaras"
+
+#: mobilegends.php:54
+msgid "All Seasons"
+msgstr "Todas temporadas"
+
+#: mobilegends.php:55
+msgid "Parent Season"
+msgstr "Temporada pai"
+
+#: mobilegends.php:56
+msgid "Parent Season:"
+msgstr "Temporada pai:"
+
+#: mobilegends.php:57
+msgid "Edit Season"
+msgstr "Editar Temporada"
+
+#: mobilegends.php:58
+msgid "Update Season"
+msgstr "Atualizar Temporada"
+
+#: mobilegends.php:59
+msgid "Add New Season"
+msgstr "Adicionar nova temporada"
+
+#: mobilegends.php:60
+msgid "New Season Name"
+msgstr "Nome da nova temporada"
+
+#: admin/dashboard.php:8
+msgid "Install Default Data"
+msgstr "Instalar dados padrões"
+
+#: admin/dashboard.php:9
+msgid "Skip"
+msgstr "Pular"
 
 #. Name of the plugin
 #: admin/pages.php:13
 msgid "MobiLegends"
 msgstr "MobiLegends"
 
-#: admin/pages.php:22
+#: admin/pages.php:23
 msgid "Dashboard"
 msgstr "Visão Geral"
+
+#: admin/pages.php:63
+msgid "Settings"
+msgstr "Configurações"
+
+#: admin/show_data.php:22
+msgid "Select All"
+msgstr "Selecionar tudo"
+
+#: admin/show_data.php:27
+msgid "Title"
+msgstr "Título"
+
+#: admin/show_data.php:48
+msgid "Select"
+msgstr "Selecionar"
 
 #. Description of the plugin
 msgid "This is a plugin made especially for Mobile Legends League"

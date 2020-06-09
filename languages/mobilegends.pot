@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MobiLegends\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-03 10:16+0000\n"
+"POT-Creation-Date: 2020-04-23 19:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,36 +15,84 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.1; wp-5.3.2"
 
-#: mobilegends.php:14 admin/pages.php:46
+#: mobilegends.php:26 admin/pages.php:47
 msgid "Teams"
 msgstr ""
 
-#: mobilegends.php:15
+#: mobilegends.php:27
 msgid "Team"
 msgstr ""
 
-#: mobilegends.php:18 admin/pages.php:54
+#: mobilegends.php:30 admin/pages.php:55
 msgid "Players"
 msgstr ""
 
-#: mobilegends.php:19
+#: mobilegends.php:31
 msgid "Player"
 msgstr ""
 
-#: mobilegends.php:22 admin/pages.php:38
+#: mobilegends.php:34 admin/pages.php:39
 msgid "Matches"
 msgstr ""
 
-#: mobilegends.php:23
+#: mobilegends.php:35
 msgid "Match"
 msgstr ""
 
-#: mobilegends.php:26
+#: mobilegends.php:38 mobilegends.php:51
 msgid "Seasons"
 msgstr ""
 
-#: mobilegends.php:27 admin/pages.php:30
+#: mobilegends.php:39 mobilegends.php:52 mobilegends.php:61 admin/pages.php:31
 msgid "Season"
+msgstr ""
+
+#: mobilegends.php:42
+msgid "Camps"
+msgstr ""
+
+#: mobilegends.php:43
+msgid "Camp"
+msgstr ""
+
+#: mobilegends.php:53
+msgid "Search Seasons"
+msgstr ""
+
+#: mobilegends.php:54
+msgid "All Seasons"
+msgstr ""
+
+#: mobilegends.php:55
+msgid "Parent Season"
+msgstr ""
+
+#: mobilegends.php:56
+msgid "Parent Season:"
+msgstr ""
+
+#: mobilegends.php:57
+msgid "Edit Season"
+msgstr ""
+
+#: mobilegends.php:58
+msgid "Update Season"
+msgstr ""
+
+#: mobilegends.php:59
+msgid "Add New Season"
+msgstr ""
+
+#: mobilegends.php:60
+msgid "New Season Name"
+msgstr ""
+
+#: admin/dashboard.php:8
+msgid "Install Default Data"
+msgstr ""
+
+#: admin/dashboard.php:9
+msgid "Skip"
 msgstr ""
 
 #. Name of the plugin
@@ -52,8 +100,24 @@ msgstr ""
 msgid "MobiLegends"
 msgstr ""
 
-#: admin/pages.php:22
+#: admin/pages.php:23
 msgid "Dashboard"
+msgstr ""
+
+#: admin/pages.php:63
+msgid "Settings"
+msgstr ""
+
+#: admin/show_data.php:22
+msgid "Select All"
+msgstr ""
+
+#: admin/show_data.php:27
+msgid "Title"
+msgstr ""
+
+#: admin/show_data.php:48
+msgid "Select"
 msgstr ""
 
 #. Description of the plugin
